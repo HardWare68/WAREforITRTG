@@ -35,8 +35,10 @@ def screenshotMonitors():
             img = Image.frombytes("RGB", (raw.width, raw.height), raw.rgb)
             yield img, monitor
 
+#Function to click the center of an image
+#Works with several monitors. Yippie!
 def clickButton(buttonDir):
-    print(f"Scanning for {buttonDir} button...")
+    print(f"Scanning for {buttonDir}")
     with mss.mss() as sct:
         for monitor in sct.monitors:
             screenshot = sct.grab(monitor)
