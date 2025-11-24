@@ -18,7 +18,7 @@ import webbrowser
 PATH_TO_ITRTG = "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Idling to Rule the Gods" #edit this as needed, just go to Steam and click "Browse Local Files"
 EXECUTABLE_NAME = "Idling to Rule the Gods.exe"
 LINK_TO_SPREADSHEET = "https://docs.google.com/spreadsheets/d/1NwgcDbZqf_2FNssnx4ts3XEZtC-n9IczDcsOal1s5Jw/edit?gid=782907758#gid=782907758" #Make sure this is your own spreadsheet, and it points to the "PlayerStats" sheet!
-                                                                                                                                             #Idk if the positino
+                                                                                                                                             #Idk if the position is saved, or if it always starts at A1. Make sure you are set to A1, I suppose...
 
 #Function to check if program is already running
 def isRunning(name):
