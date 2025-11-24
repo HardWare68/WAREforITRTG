@@ -13,10 +13,12 @@ import pyscreeze
 import mss
 import pygetwindow
 from PIL import Image
-#import Pillow
+import webbrowser
 
 PATH_TO_ITRTG = "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Idling to Rule the Gods" #edit this as needed, just go to Steam and click "Browse Local Files"
 EXECUTABLE_NAME = "Idling to Rule the Gods.exe"
+LINK_TO_SPREADSHEET = "https://docs.google.com/spreadsheets/d/1NwgcDbZqf_2FNssnx4ts3XEZtC-n9IczDcsOal1s5Jw/edit?gid=782907758#gid=782907758" #Make sure this is your own spreadsheet, and it points to the "PlayerStats" sheet!
+                                                                                                                                             #Idk if the positino
 
 #Function to check if program is already running
 def isRunning(name):
@@ -92,10 +94,27 @@ pyautogui.press('u')
 
 #Step 3.3: Click the needed buttons
 try:
-    clickButton("images\\Close.png") #Close the offline progress report if needed.
+    clickButton("images\\close.png") #Close the offline progress report if needed.
 except:
     print("No need to close. Moving on...")
 clickButton("images\\other.png")
 clickButton("images\\exportStats.png")
+
+#Step 4: Open the webpage.
+print("Opening spreadsheet...")
+webbrowser.open_new_tab(LINK_TO_SPREADSHEET)
+
+#Sleep for a second to let google catch up
+time.sleep(4)
+
+#Step 5: Navigate to cell B2
+#Fuck it man. Image recognition for the win again.
+clickButton("images\\spreadsheetB2.png")
+clickButton("images\\spreadsheetB2.png") #double-click to bring the cell into focus
+
+#Step 6: Copy and paste!
+pyautogui.hotkey('ctrl', 'a', 'x', 'v') #Choose the entire cell, delete it, paste the new data
+
+#Step 7: TO-DO: Click the "Add to Log" button
 
 x = input("Update should be finished. You are free to close this window.")
